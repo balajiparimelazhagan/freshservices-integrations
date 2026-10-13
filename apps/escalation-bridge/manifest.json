@@ -1,0 +1,49 @@
+{
+  "platform-version": "3.0",
+  "modules": {
+    "common": {
+      "events": {
+        "onAppInstall": {
+          "handler": "onAppInstallHandler"
+        },
+        "onExternalEvent": {
+          "handler": "onExternalEventHandler"
+        }
+      },
+      "requests": {
+        "sourceGetTicket": {},
+        "sourceUpdateTicket": {},
+        "sourceAddNote": {},
+        "targetGetTicket": {},
+        "targetCreateTicket": {},
+        "targetGetTicketDetails": {},
+        "targetGetAgent": {},
+        "targetGetGroup": {},
+        "targetUpdateTicket": {}
+      }
+    },
+    "service_ticket": {
+      "events": {
+        "onTicketCreate": {
+          "handler": "onTicketCreateHandler"
+        },
+        "onTicketUpdate": {
+          "handler": "onTicketUpdateHandler"
+        }
+      },
+      "location": {
+        "ticket_sidebar": {
+          "url": "index.html",
+          "icon": "styles/images/icon.svg"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "fdk-unit-test": "vitest run --coverage"
+  },
+  "engines": {
+    "node": "24.11.0",
+    "fdk": "10.1.9"
+  }
+}

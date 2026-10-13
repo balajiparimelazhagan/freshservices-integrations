@@ -1,0 +1,8 @@
+{
+  "account_id": "12345",
+  "event": "onExternalEvent",
+  "region": "US",
+  "timestamp": 1790775000000,
+  "data": { "ticket_id": "#INC-74" },
+  "headers": { "Content-Type": "application/json", "X-Bridge-Token": "local-sim-token" }
+}

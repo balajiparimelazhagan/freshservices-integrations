@@ -1,0 +1,59 @@
+{
+  "source_domain": {
+    "display_name": "This account's Freshservice domain",
+    "description": "The account this app is installed in, e.g. yora.freshservice.com",
+    "type": "text",
+    "required": true,
+    "regex": { "domain": "^[a-z0-9-]+\\.freshservice\\.com$", "domain-error": "Use the form <name>.freshservice.com" }
+  },
+  "source_api_key": {
+    "display_name": "This account's API key",
+    "description": "Used to add notes and sync status back onto tickets in this account",
+    "type": "text",
+    "required": true,
+    "secure": true
+  },
+  "target_domain": {
+    "display_name": "Target Freshservice domain",
+    "description": "Where urgent tickets are escalated, e.g. fwddeployhelpdesk.freshservice.com",
+    "type": "text",
+    "required": true,
+    "regex": { "domain": "^[a-z0-9-]+\\.freshservice\\.com$", "domain-error": "Use the form <name>.freshservice.com" }
+  },
+  "target_api_key": {
+    "display_name": "Target API key",
+    "type": "text",
+    "required": true,
+    "secure": true
+  },
+  "requester_email": {
+    "display_name": "Requester email in target",
+    "description": "Escalated tickets are raised in the target as this requester",
+    "type": "email",
+    "required": true
+  },
+  "escalate_priority": {
+    "display_name": "Escalate at priority",
+    "description": "4 = Urgent only, 3 = High and above",
+    "type": "dropdown",
+    "options": ["4", "3"],
+    "default_value": "4"
+  },
+  "target_group_id": {
+    "display_name": "Target group id",
+    "description": "Optional agent group in the target for escalated tickets",
+    "type": "text"
+  },
+  "target_custom_fields": {
+    "display_name": "Target custom fields (JSON)",
+    "description": "Fields the target requires on new tickets, e.g. {\"msf_multi_agent_groups\":[4]}",
+    "type": "paragraph",
+    "default_value": "{}"
+  },
+  "webhook_token": {
+    "display_name": "Webhook token",
+    "description": "Long random string; the target's Workflow Automator sends it in the X-Bridge-Token header",
+    "type": "text",
+    "required": true
+  }
+}

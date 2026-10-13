@@ -1,0 +1,102 @@
+{
+  "sourceGetTicket": {
+    "schema": {
+      "method": "GET",
+      "host": "<%= iparam.source_domain %>",
+      "path": "/api/v2/tickets/<%= context.id %>",
+      "query": {
+        "include": "tags"
+      },
+      "headers": {
+        "Authorization": "Basic <%= encode(iparam.source_api_key + ':X') %>"
+      }
+    }
+  },
+  "sourceUpdateTicket": {
+    "schema": {
+      "method": "PUT",
+      "host": "<%= iparam.source_domain %>",
+      "path": "/api/v2/tickets/<%= context.id %>",
+      "headers": {
+        "Authorization": "Basic <%= encode(iparam.source_api_key + ':X') %>",
+        "Content-Type": "application/json"
+      }
+    }
+  },
+  "sourceAddNote": {
+    "schema": {
+      "method": "POST",
+      "host": "<%= iparam.source_domain %>",
+      "path": "/api/v2/tickets/<%= context.id %>/notes",
+      "headers": {
+        "Authorization": "Basic <%= encode(iparam.source_api_key + ':X') %>",
+        "Content-Type": "application/json"
+      }
+    }
+  },
+  "targetGetTicket": {
+    "schema": {
+      "method": "GET",
+      "host": "<%= iparam.target_domain %>",
+      "path": "/api/v2/tickets/<%= context.id %>",
+      "headers": {
+        "Authorization": "Basic <%= encode(iparam.target_api_key + ':X') %>"
+      }
+    }
+  },
+  "targetCreateTicket": {
+    "schema": {
+      "method": "POST",
+      "host": "<%= iparam.target_domain %>",
+      "path": "/api/v2/tickets",
+      "headers": {
+        "Authorization": "Basic <%= encode(iparam.target_api_key + ':X') %>",
+        "Content-Type": "application/json"
+      }
+    }
+  },
+  "targetGetTicketDetails": {
+    "schema": {
+      "method": "GET",
+      "host": "<%= iparam.target_domain %>",
+      "path": "/api/v2/tickets/<%= context.id %>",
+      "query": {
+        "include": "conversations"
+      },
+      "headers": {
+        "Authorization": "Basic <%= encode(iparam.target_api_key + ':X') %>"
+      }
+    }
+  },
+  "targetGetAgent": {
+    "schema": {
+      "method": "GET",
+      "host": "<%= iparam.target_domain %>",
+      "path": "/api/v2/agents/<%= context.id %>",
+      "headers": {
+        "Authorization": "Basic <%= encode(iparam.target_api_key + ':X') %>"
+      }
+    }
+  },
+  "targetGetGroup": {
+    "schema": {
+      "method": "GET",
+      "host": "<%= iparam.target_domain %>",
+      "path": "/api/v2/groups/<%= context.id %>",
+      "headers": {
+        "Authorization": "Basic <%= encode(iparam.target_api_key + ':X') %>"
+      }
+    }
+  },
+  "targetUpdateTicket": {
+    "schema": {
+      "method": "PUT",
+      "host": "<%= iparam.target_domain %>",
+      "path": "/api/v2/tickets/<%= context.id %>",
+      "headers": {
+        "Authorization": "Basic <%= encode(iparam.target_api_key + ':X') %>",
+        "Content-Type": "application/json"
+      }
+    }
+  }
+}
