@@ -1,0 +1,58 @@
+{
+  "bambooChanged": {
+    "schema": {
+      "method": "GET",
+      "host": "api.bamboohr.com",
+      "path": "/api/gateway.php/<%= iparam.bamboo_subdomain %>/v1/employees/changed",
+      "query": { "since": "<%= context.since %>" },
+      "headers": {
+        "Authorization": "Basic <%= encode(iparam.bamboo_api_key + ':x') %>",
+        "Accept": "application/json"
+      }
+    }
+  },
+  "bambooEmployee": {
+    "schema": {
+      "method": "GET",
+      "host": "api.bamboohr.com",
+      "path": "/api/gateway.php/<%= iparam.bamboo_subdomain %>/v1/employees/<%= context.id %>",
+      "query": { "fields": "firstName,lastName,workEmail,jobTitle,department,status,hireDate,terminationDate" },
+      "headers": {
+        "Authorization": "Basic <%= encode(iparam.bamboo_api_key + ':x') %>",
+        "Accept": "application/json"
+      }
+    }
+  },
+  "fsCreateRequester": {
+    "schema": {
+      "method": "POST",
+      "host": "<%= iparam.fs_domain %>",
+      "path": "/api/v2/requesters",
+      "headers": { "Authorization": "Basic <%= encode(iparam.fs_api_key + ':X') %>", "Content-Type": "application/json" }
+    }
+  },
+  "fsUpdateRequester": {
+    "schema": {
+      "method": "PUT",
+      "host": "<%= iparam.fs_domain %>",
+      "path": "/api/v2/requesters/<%= context.id %>",
+      "headers": { "Authorization": "Basic <%= encode(iparam.fs_api_key + ':X') %>", "Content-Type": "application/json" }
+    }
+  },
+  "fsDeactivateRequester": {
+    "schema": {
+      "method": "DELETE",
+      "host": "<%= iparam.fs_domain %>",
+      "path": "/api/v2/requesters/<%= context.id %>",
+      "headers": { "Authorization": "Basic <%= encode(iparam.fs_api_key + ':X') %>" }
+    }
+  },
+  "fsCreateTicket": {
+    "schema": {
+      "method": "POST",
+      "host": "<%= iparam.fs_domain %>",
+      "path": "/api/v2/tickets",
+      "headers": { "Authorization": "Basic <%= encode(iparam.fs_api_key + ':X') %>", "Content-Type": "application/json" }
+    }
+  }
+}

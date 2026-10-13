@@ -1,0 +1,45 @@
+{
+  "fs_domain": {
+    "display_name": "Freshservice domain",
+    "description": "The account this app is installed in, e.g. yora.freshservice.com",
+    "type": "text",
+    "required": true,
+    "regex": { "domain": "^[a-z0-9-]+\\.freshservice\\.com$", "domain-error": "Use the form <name>.freshservice.com" }
+  },
+  "fs_api_key": {
+    "display_name": "Freshservice API key",
+    "description": "An admin's API key; used to create requesters and tickets",
+    "type": "text",
+    "required": true,
+    "secure": true
+  },
+  "bamboo_subdomain": {
+    "display_name": "BambooHR company subdomain",
+    "description": "The xxx in xxx.bamboohr.com",
+    "type": "text",
+    "required": true,
+    "regex": { "sub": "^[a-z0-9-]+$", "sub-error": "Only the subdomain, e.g. acme" }
+  },
+  "bamboo_api_key": {
+    "display_name": "BambooHR API key",
+    "type": "text",
+    "required": true,
+    "secure": true
+  },
+  "email_filter": {
+    "display_name": "Only sync work emails matching",
+    "description": "Regular expression. Leave empty to sync everyone. For testing, e.g. ^you\\+.*@gmail\\.com$",
+    "type": "text"
+  },
+  "it_group_id": {
+    "display_name": "IT group for onboarding/offboarding tickets",
+    "description": "Optional Freshservice group id",
+    "type": "text"
+  },
+  "run_token": {
+    "display_name": "Run-now token",
+    "description": "Long random string; send it as X-Run-Token to the app's webhook URL to run a sync immediately",
+    "type": "text",
+    "required": true
+  }
+}

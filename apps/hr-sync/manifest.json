@@ -1,0 +1,23 @@
+{
+  "platform-version": "3.0",
+  "modules": {
+    "common": {
+      "events": {
+        "onAppInstall": { "handler": "onAppInstallHandler" },
+        "onScheduledEvent": { "handler": "onScheduledEventHandler" },
+        "onExternalEvent": { "handler": "onExternalEventHandler" }
+      },
+      "requests": {
+        "bambooChanged": {},
+        "bambooEmployee": {},
+        "fsCreateRequester": {},
+        "fsUpdateRequester": {},
+        "fsDeactivateRequester": {},
+        "fsCreateTicket": {}
+      }
+    },
+    "service_user": {}
+  },
+  "scripts": { "fdk-unit-test": "vitest run --coverage" },
+  "engines": { "node": "24.11.0", "fdk": "10.1.9" }
+}
