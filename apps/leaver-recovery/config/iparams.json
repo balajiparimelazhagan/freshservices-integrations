@@ -1,0 +1,35 @@
+{
+  "fs_domain": {
+    "display_name": "Freshservice domain",
+    "description": "The account this app is installed in, e.g. yora.freshservice.com",
+    "type": "text",
+    "required": true,
+    "regex": { "domain": "^[a-z0-9-]+\\.freshservice\\.com$", "domain-error": "Use the form <name>.freshservice.com" }
+  },
+  "fs_api_key": {
+    "display_name": "Freshservice API key",
+    "description": "An admin's API key; used to read assets and update offboarding tickets",
+    "type": "text",
+    "required": true,
+    "secure": true
+  },
+  "trigger_tag": {
+    "display_name": "Offboarding ticket tag",
+    "description": "Tickets with this tag start device recovery for their requester",
+    "type": "text",
+    "default_value": "offboarding",
+    "required": true
+  },
+  "grace_days": {
+    "display_name": "Days to return devices",
+    "type": "dropdown",
+    "options": ["3", "5", "7", "14"],
+    "default_value": "7"
+  },
+  "run_token": {
+    "display_name": "Run-now token",
+    "description": "Long random string; send it as X-Run-Token to the app's webhook URL to run immediately",
+    "type": "text",
+    "required": true
+  }
+}

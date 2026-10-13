@@ -1,0 +1,86 @@
+{
+  "fsFindTickets": {
+    "schema": {
+      "method": "GET",
+      "host": "<%= iparam.fs_domain %>",
+      "path": "/api/v2/tickets/filter",
+      "headers": {
+        "Authorization": "Basic <%= encode(iparam.fs_api_key + ':X') %>"
+      },
+      "query": {
+        "query": "<%= context.query %>"
+      }
+    }
+  },
+  "fsUserAssets": {
+    "schema": {
+      "method": "GET",
+      "host": "<%= iparam.fs_domain %>",
+      "path": "/api/v2/assets",
+      "headers": {
+        "Authorization": "Basic <%= encode(iparam.fs_api_key + ':X') %>"
+      },
+      "query": {
+        "filter": "<%= context.filter %>",
+        "include": "type_fields"
+      }
+    }
+  },
+  "fsGetAsset": {
+    "schema": {
+      "method": "GET",
+      "host": "<%= iparam.fs_domain %>",
+      "path": "/api/v2/assets/<%= context.id %>",
+      "headers": {
+        "Authorization": "Basic <%= encode(iparam.fs_api_key + ':X') %>"
+      },
+      "query": {
+        "include": "type_fields"
+      }
+    }
+  },
+  "fsCreateTask": {
+    "schema": {
+      "method": "POST",
+      "host": "<%= iparam.fs_domain %>",
+      "path": "/api/v2/tickets/<%= context.ticket %>/tasks",
+      "headers": {
+        "Authorization": "Basic <%= encode(iparam.fs_api_key + ':X') %>",
+        "Content-Type": "application/json"
+      }
+    }
+  },
+  "fsCompleteTask": {
+    "schema": {
+      "method": "PUT",
+      "host": "<%= iparam.fs_domain %>",
+      "path": "/api/v2/tickets/<%= context.ticket %>/tasks/<%= context.task %>",
+      "headers": {
+        "Authorization": "Basic <%= encode(iparam.fs_api_key + ':X') %>",
+        "Content-Type": "application/json"
+      }
+    }
+  },
+  "fsAddNote": {
+    "schema": {
+      "method": "POST",
+      "host": "<%= iparam.fs_domain %>",
+      "path": "/api/v2/tickets/<%= context.ticket %>/notes",
+      "headers": {
+        "Authorization": "Basic <%= encode(iparam.fs_api_key + ':X') %>",
+        "Content-Type": "application/json"
+      }
+    }
+  },
+  "fsRaisePriority": {
+    "schema": {
+      "method": "PUT",
+      "host": "<%= iparam.fs_domain %>",
+      "path": "/api/v2/tickets/<%= context.ticket %>",
+      "headers": {
+        "Authorization": "Basic <%= encode(iparam.fs_api_key + ':X') %>",
+        "Content-Type": "application/json"
+      }
+    }
+  }
+}
