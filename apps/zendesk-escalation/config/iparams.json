@@ -1,0 +1,52 @@
+{
+  "fs_domain": {
+    "display_name": "Freshservice domain",
+    "description": "The account this app is installed in, e.g. yora.freshservice.com",
+    "type": "text",
+    "required": true,
+    "regex": { "domain": "^[a-z0-9-]+\\.freshservice\\.com$", "domain-error": "Use the form <name>.freshservice.com" }
+  },
+  "fs_api_key": {
+    "display_name": "Freshservice API key",
+    "type": "text",
+    "required": true,
+    "secure": true
+  },
+  "zd_domain": {
+    "display_name": "Zendesk domain",
+    "description": "e.g. acme.zendesk.com",
+    "type": "text",
+    "required": true,
+    "regex": { "domain": "^[a-z0-9-]+\\.zendesk\\.com$", "domain-error": "Use the form <name>.zendesk.com" }
+  },
+  "zd_email": {
+    "display_name": "Zendesk agent email",
+    "description": "The agent the API token belongs to; notes appear as this agent",
+    "type": "email",
+    "required": true
+  },
+  "zd_api_token": {
+    "display_name": "Zendesk API token",
+    "description": "Admin Center → Apps and integrations → Zendesk API",
+    "type": "text",
+    "required": true,
+    "secure": true
+  },
+  "requester_email": {
+    "display_name": "Requester email in Freshservice",
+    "description": "Incidents are raised as this requester, e.g. the support team mailbox",
+    "type": "email",
+    "required": true
+  },
+  "it_group_id": {
+    "display_name": "IT group id",
+    "description": "Optional Freshservice group for escalated incidents",
+    "type": "text"
+  },
+  "webhook_token": {
+    "display_name": "Webhook token",
+    "description": "Long random string; the Zendesk webhook sends it in the X-Bridge-Token header",
+    "type": "text",
+    "required": true
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "zdGetTicket": {
+    "schema": {
+      "method": "GET",
+      "host": "<%= iparam.zd_domain %>",
+      "path": "/api/v2/tickets/<%= context.id %>.json",
+      "query": {
+        "include": "organizations"
+      },
+      "headers": {
+        "Authorization": "Basic <%= encode(iparam.zd_email + '/token:' + iparam.zd_api_token) %>"
+      }
+    }
+  },
+  "zdUpdateTicket": {
+    "schema": {
+      "method": "PUT",
+      "host": "<%= iparam.zd_domain %>",
+      "path": "/api/v2/tickets/<%= context.id %>.json",
+      "headers": {
+        "Authorization": "Basic <%= encode(iparam.zd_email + '/token:' + iparam.zd_api_token) %>",
+        "Content-Type": "application/json"
+      }
+    }
+  },
+  "fsCreateTicket": {
+    "schema": {
+      "method": "POST",
+      "host": "<%= iparam.fs_domain %>",
+      "path": "/api/v2/tickets",
+      "headers": {
+        "Authorization": "Basic <%= encode(iparam.fs_api_key + ':X') %>",
+        "Content-Type": "application/json"
+      }
+    }
+  },
+  "fsSetPriority": {
+    "schema": {
+      "method": "PUT",
+      "host": "<%= iparam.fs_domain %>",
+      "path": "/api/v2/tickets/<%= context.id %>",
+      "headers": {
+        "Authorization": "Basic <%= encode(iparam.fs_api_key + ':X') %>",
+        "Content-Type": "application/json"
+      }
+    }
+  },
+  "fsGetTicket": {
+    "schema": {
+      "method": "GET",
+      "host": "<%= iparam.fs_domain %>",
+      "path": "/api/v2/tickets/<%= context.id %>",
+      "headers": {
+        "Authorization": "Basic <%= encode(iparam.fs_api_key + ':X') %>"
+      }
+    }
+  }
+}

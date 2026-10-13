@@ -1,0 +1,36 @@
+{
+  "platform-version": "3.0",
+  "modules": {
+    "common": {
+      "events": {
+        "onAppInstall": {
+          "handler": "onAppInstallHandler"
+        },
+        "onExternalEvent": {
+          "handler": "onExternalEventHandler"
+        }
+      },
+      "requests": {
+        "zdGetTicket": {},
+        "zdUpdateTicket": {},
+        "fsCreateTicket": {},
+        "fsSetPriority": {},
+        "fsGetTicket": {}
+      }
+    },
+    "service_ticket": {
+      "events": {
+        "onTicketUpdate": {
+          "handler": "onTicketUpdateHandler"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "fdk-unit-test": "vitest run --coverage"
+  },
+  "engines": {
+    "node": "24.11.0",
+    "fdk": "10.1.9"
+  }
+}
