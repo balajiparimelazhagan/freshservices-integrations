@@ -1,0 +1,23 @@
+# Secrets: API keys live only in this file, never in git
+.freshservice.env
+*.env
+.env*
+
+# Freshworks FDK local state: .fdk/ and log/ contain secure settings in plain text
+.fdk/
+log/
+.report.json
+.freddy-copilot-error.log
+
+# Build and test output
+node_modules/
+coverage/
+dist/
+
+# Python
+__pycache__/
+*.pyc
+*.db
+
+# OS
+.DS_Store
