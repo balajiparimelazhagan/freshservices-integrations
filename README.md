@@ -8,6 +8,7 @@ Integrations that connect Freshservice with the other systems a business runs on
 | [HR Sync](apps/hr-sync) | Turns BambooHR hires and exits into Freshservice requesters plus onboarding and offboarding tickets | Built and unit-tested; live test pending |
 | [Leaver Asset Recovery](apps/leaver-recovery) | For each offboarding ticket, lists the leaver's devices as tasks, tracks their return and escalates overdue ones | Built and unit-tested; live test pending |
 | [Support-to-IT Escalation](apps/zendesk-escalation) | Turns tagged Zendesk tickets into Freshservice incidents and posts IT status and the resolution back to Zendesk | Built and unit-tested; live test pending |
+| [Workday Movers](apps/workday-movers) | Turns Workday job changes into requester updates (title, department, manager) and access review tickets for the new manager | Built and unit-tested; needs a Workday tenant for a live test |
 | [Python prototype](prototype) | The first version of the escalation bridge, as a FastAPI service | Superseded by Escalation Bridge |
 
 [`docs/freshworks-custom-app.md`](docs/freshworks-custom-app.md) collects platform notes, account quirks and lessons learned while building these.

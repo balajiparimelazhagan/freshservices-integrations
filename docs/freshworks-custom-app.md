@@ -413,3 +413,13 @@ App code: `apps/escalation-bridge/` (see its README for simulation and publish s
 - Zendesk auth: Basic `email/token:API_TOKEN`. Comments go as `{"ticket":{"comment":{"body":…, "public":false}}}`. `additional_tags: ['it_escalated']` keeps the trigger from firing again.
 - `fdk validate` has a **false positive**, "possible deprecated API usage", on the line reading `resolution_notes`. It is a Freshservice v1-deprecation heuristic; the app only uses `/api/v2`.
 - Status: 15 unit tests pass. A live test needs a Zendesk trial (the user creates it) plus the webhook and trigger setup.
+
+
+## 11. Fifth app: Workday Movers, built offline 2026-10-21
+
+- Code is in `apps/workday-movers/`; its README has the exact RaaS report columns and the `Updated_From` prompt.
+- It reads a Workday RaaS report through `customreport2` with Basic auth for an ISU. Freshservice requesters are looked up with `GET /api/v2/requesters?email=` (confirmed on yora), and departments are matched by name across up to 3 pages of `/departments`.
+- It only updates existing requesters. Unmappable values are listed on the ticket instead of being guessed.
+- Workday has no free trial, so a live test needs a customer's or partner's tenant.
+- `fdk create` hung once (it only created `log/`); scaffolding by copying another app's `package.json` and `vitest.config.js` works.
+- Status: 17 unit tests pass and `fdk validate` is clean.

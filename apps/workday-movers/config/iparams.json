@@ -1,0 +1,62 @@
+{
+  "fs_domain": {
+    "display_name": "Freshservice domain",
+    "description": "The account this app is installed in, e.g. acme.freshservice.com",
+    "type": "text",
+    "required": true,
+    "regex": { "domain": "^[a-z0-9-]+\\.freshservice\\.com$", "domain-error": "Use the form <name>.freshservice.com" }
+  },
+  "fs_api_key": {
+    "display_name": "Freshservice API key",
+    "description": "An admin's API key; used to update requesters and create access review tickets",
+    "type": "text",
+    "required": true,
+    "secure": true
+  },
+  "wd_host": {
+    "display_name": "Workday services host",
+    "description": "e.g. wd2-impl-services1.workday.com",
+    "type": "text",
+    "required": true,
+    "regex": { "host": "^[a-z0-9.-]+\\.workday\\.com$", "host-error": "Use the Workday services host, e.g. wd5-services1.workday.com" }
+  },
+  "wd_tenant": {
+    "display_name": "Workday tenant",
+    "type": "text",
+    "required": true
+  },
+  "wd_report": {
+    "display_name": "Report path (owner/report name)",
+    "description": "The RaaS custom report of job changes, e.g. ISU_Freshservice/Freshservice_Worker_Moves",
+    "type": "text",
+    "required": true
+  },
+  "wd_username": {
+    "display_name": "Integration system user",
+    "description": "Workday ISU with access to the report",
+    "type": "text",
+    "required": true
+  },
+  "wd_password": {
+    "display_name": "Integration system user password",
+    "type": "text",
+    "required": true,
+    "secure": true
+  },
+  "email_filter": {
+    "display_name": "Only process work emails matching",
+    "description": "Regular expression. Leave empty to process everyone. Use a narrow pattern while testing.",
+    "type": "text"
+  },
+  "it_group_id": {
+    "display_name": "IT group for access review tickets",
+    "description": "Optional Freshservice group id",
+    "type": "text"
+  },
+  "run_token": {
+    "display_name": "Run-now token",
+    "description": "Long random string; send it as X-Run-Token to the app's webhook URL to run immediately",
+    "type": "text",
+    "required": true
+  }
+}

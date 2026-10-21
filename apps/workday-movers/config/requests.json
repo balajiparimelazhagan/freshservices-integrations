@@ -1,0 +1,66 @@
+{
+  "wdMoves": {
+    "schema": {
+      "method": "GET",
+      "host": "<%= iparam.wd_host %>",
+      "path": "/ccx/service/customreport2/<%= iparam.wd_tenant %>/<%= iparam.wd_report %>",
+      "query": {
+        "format": "json",
+        "Updated_From": "<%= context.since %>"
+      },
+      "headers": {
+        "Authorization": "Basic <%= encode(iparam.wd_username + ':' + iparam.wd_password) %>",
+        "Accept": "application/json"
+      }
+    }
+  },
+  "fsFindRequester": {
+    "schema": {
+      "method": "GET",
+      "host": "<%= iparam.fs_domain %>",
+      "path": "/api/v2/requesters",
+      "query": {
+        "email": "<%= context.email %>"
+      },
+      "headers": {
+        "Authorization": "Basic <%= encode(iparam.fs_api_key + ':X') %>"
+      }
+    }
+  },
+  "fsDepartments": {
+    "schema": {
+      "method": "GET",
+      "host": "<%= iparam.fs_domain %>",
+      "path": "/api/v2/departments",
+      "query": {
+        "per_page": "100",
+        "page": "<%= context.page %>"
+      },
+      "headers": {
+        "Authorization": "Basic <%= encode(iparam.fs_api_key + ':X') %>"
+      }
+    }
+  },
+  "fsUpdateRequester": {
+    "schema": {
+      "method": "PUT",
+      "host": "<%= iparam.fs_domain %>",
+      "path": "/api/v2/requesters/<%= context.id %>",
+      "headers": {
+        "Authorization": "Basic <%= encode(iparam.fs_api_key + ':X') %>",
+        "Content-Type": "application/json"
+      }
+    }
+  },
+  "fsCreateTicket": {
+    "schema": {
+      "method": "POST",
+      "host": "<%= iparam.fs_domain %>",
+      "path": "/api/v2/tickets",
+      "headers": {
+        "Authorization": "Basic <%= encode(iparam.fs_api_key + ':X') %>",
+        "Content-Type": "application/json"
+      }
+    }
+  }
+}
